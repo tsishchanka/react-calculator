@@ -1,9 +1,11 @@
+/* eslint-disable import/order */
 /* eslint-disable react/jsx-no-constructed-context-values */
 import React, { useState } from 'react';
 
-import ErrorBoundary from 'components/ErrorBoundary/ErrorBoundary';
 import PropTypes from 'prop-types';
+
 import { ThemeContext, ThemeProvider } from 'styled-components';
+import ErrorBoundary from 'components/ErrorBoundary/ErrorBoundary';
 import { darkTheme, lightTheme, coloredTheme } from 'theme';
 
 import Header from '../Header';

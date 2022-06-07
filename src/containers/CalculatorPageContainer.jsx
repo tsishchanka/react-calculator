@@ -1,11 +1,11 @@
+/* eslint-disable import/order */
 import React, { useState, useContext } from 'react';
 
-import { HistoryContext } from '../components/App/App';
-
+import { HistoryContext } from 'components/App/App';
 import { isNotNumber, isNumber, isOperator } from 'constants/formulaValues';
 
-import * as Calculator from '../helpers/evaluate';
-import CalculatorPage from '../screens/CalculatorPage/index';
+import * as Calculator from 'helpers/evaluate';
+import CalculatorPage from 'screens/CalculatorPage/index';
 
 function CalculatorPageContainer() {
   const [inputData, setInputData] = useState('0');

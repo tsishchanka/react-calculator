@@ -3,6 +3,7 @@
 import React, { useContext } from 'react';
 
 import { SideBarContext } from 'screens/CalculatorPage/index';
+
 import { HistoryContext } from '../App/App';
 import { HistoryPanel, HistoryPanelTitle, HistoryPanelItem } from './styled';
 
