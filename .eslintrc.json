@@ -1,0 +1,122 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "cypress/globals": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "prettier"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "prettier",
+        "react-hooks",
+        "cypress"
+    ],
+    "rules": {
+        "prettier/prettier": "error",
+        "no-unused-vars": "warn",
+        "no-console": "off",
+        "arrow-parens": [
+            "error",
+            "as-needed"
+        ],
+       "react/function-component-definition": ["warn",
+        {
+          "namedComponents": ["function-declaration", "function-expression" , "arrow-function"],
+          "unnamedComponents": ["function-expression" , "arrow-function" ]
+        }
+      ],
+        "max-len": [
+            "warn",
+            {
+                "code": 80,
+                "tabWidth": 4,
+                "ignoreUrls": true,
+                "ignorePattern": "import"
+            }
+        ],
+        "jsx-no-constructed-context-values": "off",
+        "import/no-unresolved": "off",
+        "import/prefer-default-export": "off",
+        "semi": "error",
+        "react/destructuring-assignment": "off",
+        "prefer-destructuring": "error",
+        "padding-line-between-statements": "error",
+        "operator-linebreak": "off",
+        "react-hooks/rules-of-hooks": "error",
+        "react/jsx-closing-tag-location": 2,
+        "react/jsx-closing-bracket-location": "off",
+        "react/require-default-props": "off",
+        "import/order": [
+            "warn",
+            {
+                "groups": [
+                    "builtin",
+                    "external",
+                    "internal"
+                ],
+                "pathGroups": [
+                    {
+                        "pattern": "react",
+                        "group": "external",
+                        "position": "before"
+                    }
+                ],
+                "pathGroupsExcludedImportTypes": [
+                    "react"
+                ],
+                "newlines-between": "always",
+                "alphabetize": {
+                    "order": "asc",
+                    "caseInsensitive": true
+                }
+            }
+        ]
+    },
+    "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": [
+          "src"
+        ]
+      },
+      "alias": {
+        "map": [
+                    // And all your import aliases
+                    ["@components", "./src/components"],
+                    ["@pages", "./src/pages"
+                    ]
+                ],
+        "extensions": [".ts", ".js", ".jsx", ".json"
+                ]
+            }
+        }
+    },
+    "overrides": [
+        {
+            "files": [
+                "src/index.js"
+            ],
+            "rules": {
+                "react/jsx-filename-extension": "off",
+                "prettier/prettier": [
+                    "error",
+                    {
+                        "singleQuote": true
+                    }
+                ]
+            }
+        }
+    ]
+
+}

@@ -6,10 +6,13 @@
 .pnp.js
 
 # testing
+cypress/screenshots
+cypress/videos
 /coverage
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store

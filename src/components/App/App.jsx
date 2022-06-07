@@ -1,0 +1,59 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
+import React, { useState, useMemo } from 'react';
+
+import PropTypes from 'prop-types';
+import { ThemeContext, ThemeProvider } from 'styled-components';
+
+import { darkTheme, lightTheme, coloredTheme } from 'theme';
+
+import Header from '../Header';
+import { MainContainer } from './styled';
+
+export const HistoryContext = React.createContext();
+const App = ({ children }) => {
+  const [theme, setTheme] = useState('coloredTheme');
+  const [history, setHistory] = useState([]);
+
+  const handleClearHistory = () => {
+    setHistory([]);
+  };
+
+  const themeContextValue = useMemo(
+    () => ({
+      theme,
+    }),
+    [theme],
+  );
+
+  return (
+    <ThemeContext.Provider value={(themeContextValue, { setTheme })}>
+      <ThemeProvider
+        theme={
+          (theme === 'lightTheme' && { ...lightTheme }) ||
+          (theme === 'darkTheme' && { ...darkTheme }) ||
+          (theme === 'coloredTheme' && {
+            ...coloredTheme,
+          })
+        }
+      >
+        <MainContainer>
+          <HistoryContext.Provider
+            value={{ history, setHistory, handleClearHistory }}
+          >
+            <Header />
+            <div>{children}</div>
+          </HistoryContext.Provider>
+        </MainContainer>
+      </ThemeProvider>
+    </ThemeContext.Provider>
+  );
+};
+
+App.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+};
+
+export default App;
