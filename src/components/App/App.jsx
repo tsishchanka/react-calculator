@@ -3,7 +3,6 @@ import React, { useState, useMemo } from 'react';
 
 import PropTypes from 'prop-types';
 import { ThemeContext, ThemeProvider } from 'styled-components';
-
 import { darkTheme, lightTheme, coloredTheme } from 'theme';
 
 import Header from '../Header';
@@ -18,15 +17,8 @@ const App = ({ children }) => {
     setHistory([]);
   };
 
-  const themeContextValue = useMemo(
-    () => ({
-      theme,
-    }),
-    [theme],
-  );
-
   return (
-    <ThemeContext.Provider value={(themeContextValue, { setTheme })}>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
       <ThemeProvider
         theme={
           (theme === 'lightTheme' && { ...lightTheme }) ||
