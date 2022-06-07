@@ -24,7 +24,11 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "cypress": "start-server-and-test start http://localhost:3030 cypress:open",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:test": "start-server-and-test start http://localhost:3030 cypress:run"
   },
   "eslintConfig": {
     "extends": [

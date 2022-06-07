@@ -28,7 +28,6 @@ function CalculatorPageContainer() {
 
   const handleDecimalValue = ({ target }) => {
     const decimal = target.innerText;
-
     if (isCalculated) {
       setInputData(`0${decimal}`);
       setIsCalculated(false);
@@ -42,7 +41,6 @@ function CalculatorPageContainer() {
 
   const handleOperatorValue = ({ target }) => {
     const operator = target.innerText;
-
     if (Calculator.isOperator(inputData)) {
       setInputData(operator);
       setIsCalculated(false);
@@ -55,7 +53,6 @@ function CalculatorPageContainer() {
 
   const handleParenthesisValue = ({ target }) => {
     const parenthesis = target.innerText;
-
     if (parenthesis === '(') {
       if (
         (Calculator.isNumber(inputData) && inputData !== '0') ||
@@ -103,6 +100,7 @@ function CalculatorPageContainer() {
   };
 
   const handleClearOutput = () => {
+    console.log('handleClearOutput');
     setFormula([]);
     setInputData('0');
     setIsCalculated(false);
@@ -110,7 +108,7 @@ function CalculatorPageContainer() {
 
   const handleBackspace = () => {
     const inputDataLength = inputData.length;
-
+    console.log('handleBackspace');
     if (
       inputData === 'Infinity' ||
       inputData === '-Infinity' ||
@@ -134,6 +132,7 @@ function CalculatorPageContainer() {
   };
 
   const handleEvaluate = () => {
+    console.log('Evaluate');
     const finalFormula = formula.concat(inputData);
     const result = Calculator.evaluate(finalFormula);
     const newHistoryItem = {

@@ -26,7 +26,14 @@ const KeyPad = ({
   <Grid>
     {buttonValues.map(
       buttonValue =>
-        (buttonValue.name === '(' && buttonValue.name === ')' && (
+        (buttonValue.name === '(' && (
+          <ParenthesisButton
+            key={buttonValue.id}
+            value={buttonValue.name}
+            handleParenthesisValue={handleParenthesisValue}
+          />
+        )) ||
+        (buttonValue.name === ')' && (
           <ParenthesisButton
             key={buttonValue.id}
             value={buttonValue.name}
