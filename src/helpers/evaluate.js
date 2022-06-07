@@ -1,9 +1,4 @@
-import {
-  isNotNumber,
-  isNumber,
-  isOperator,
-  priority,
-} from '../constants/formulaValues';
+import { isNumber, isOperator, priority } from '../constants/formulaValues';
 
 const historyOperations = [];
 let calculatedResult = 0;

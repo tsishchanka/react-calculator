@@ -1,8 +1,11 @@
 import React, { useState, useContext } from 'react';
 
 import { HistoryContext } from '../components/App/App';
+
+import { isNotNumber, isNumber, isOperator } from 'constants/formulaValues';
+
+import * as Calculator from '../helpers/evaluate';
 import CalculatorPage from '../screens/CalculatorPage/index';
-import * as Calculator from '../utils/index';
 
 function CalculatorPageContainer() {
   const [inputData, setInputData] = useState('0');
@@ -18,7 +21,7 @@ function CalculatorPageContainer() {
       setIsCalculated(false);
     } else if (inputData === '0') {
       setInputData(digit);
-    } else if (Calculator.isNotNumber(inputData)) {
+    } else if (isNotNumber(inputData)) {
       setInputData(digit);
       setFormula(formula.concat(inputData));
     } else {
@@ -31,7 +34,7 @@ function CalculatorPageContainer() {
     if (isCalculated) {
       setInputData(`0${decimal}`);
       setIsCalculated(false);
-    } else if (Calculator.isNotNumber(inputData)) {
+    } else if (isNotNumber(inputData)) {
       setInputData(`0${decimal}`);
       setFormula(formula.concat(inputData));
     } else if (!inputData.includes(decimal)) {
@@ -41,7 +44,7 @@ function CalculatorPageContainer() {
 
   const handleOperatorValue = ({ target }) => {
     const operator = target.innerText;
-    if (Calculator.isOperator(inputData)) {
+    if (isOperator(inputData)) {
       setInputData(operator);
       setIsCalculated(false);
     } else if (inputData !== '(') {
@@ -55,21 +58,19 @@ function CalculatorPageContainer() {
     const parenthesis = target.innerText;
     if (parenthesis === '(') {
       if (
-        (Calculator.isNumber(inputData) && inputData !== '0') ||
-        (Calculator.isNumber(inputData) &&
-          inputData === '0' &&
-          formula.length > 0) ||
+        (isNumber(inputData) && inputData !== '0') ||
+        (isNumber(inputData) && inputData === '0' && formula.length > 0) ||
         inputData === ')'
       ) {
         setInputData(parenthesis);
         setFormula(formula.concat([inputData, '*']));
         setIsCalculated(false);
-      } else if (Calculator.isOperator(inputData) || inputData === '(') {
+      } else if (isOperator(inputData) || inputData === '(') {
         setInputData(parenthesis);
         setFormula(formula.concat(inputData));
         setIsCalculated(false);
       } else if (
-        Calculator.isNumber(inputData) &&
+        isNumber(inputData) &&
         inputData === '0' &&
         formula.length === 0
       ) {
@@ -88,7 +89,7 @@ function CalculatorPageContainer() {
         : 0;
 
       if (
-        (Calculator.isNumber(inputData) || inputData === ')') &&
+        (isNumber(inputData) || inputData === ')') &&
         numOpenParenthesis > 0 &&
         numOpenParenthesis > numCloseParenthesis
       ) {
@@ -117,14 +118,12 @@ function CalculatorPageContainer() {
       setInputData('0');
       setIsCalculated(false);
     } else if (inputDataLength > 1) {
-      // setInputData(toString(Calculator.handleUndo()))
       setInputData(inputData.slice(0, inputDataLength - 1));
       setIsCalculated(false);
     } else if (inputData !== '0') {
       setInputData('0');
       setIsCalculated(false);
     } else if (formula.length > 0) {
-      // setInputData(toString(Calculator.handleUndo()))
       setInputData(formula[formula.length - 1]);
       setFormula(formula.slice(0, formula.length - 1));
       setIsCalculated(false);
