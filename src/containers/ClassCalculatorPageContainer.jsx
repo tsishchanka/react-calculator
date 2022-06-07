@@ -1,9 +1,11 @@
-/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 
 import { HistoryContext } from '../components/App/App';
-import CalculatorPage from '../screens/CalculatorPage';
-import * as Calculator from '../utils/index';
+
+import { isNotNumber, isNumber, isOperator } from 'constants/formulaValues';
+
+import * as Calculator from '../helpers/evaluate';
+import CalculatorPage from '../screens/CalculatorPage/index';
 
 class ClassCalculatorPageContainer extends React.Component {
   constructor(props) {
@@ -25,15 +27,15 @@ class ClassCalculatorPageContainer extends React.Component {
       });
     } else if (this.state.inputData === '0') {
       this.setState({ inputData: digit });
-    } else if (Calculator.isNotNumber(this.state.inputData)) {
-      this.setState({
+    } else if (isNotNumber(this.state.inputData)) {
+      this.setState(prevState => ({
         inputData: digit,
-        formula: this.state.formula.concat(this.state.inputData),
-      });
+        formula: prevState.formula.concat(prevState.inputData),
+      }));
     } else {
-      this.setState({
-        inputData: this.state.inputData.concat(digit),
-      });
+      this.setState(prevState => ({
+        inputData: prevState.inputData.concat(digit),
+      }));
     }
   };
 
@@ -45,32 +47,32 @@ class ClassCalculatorPageContainer extends React.Component {
         inputData: `0${decimal}`,
         isCalculated: false,
       });
-    } else if (Calculator.isNotNumber(this.state.inputData)) {
-      this.setState({
+    } else if (isNotNumber(this.state.inputData)) {
+      this.setState(prevState => ({
         inputData: `0${decimal}`,
-        formula: this.state.formula.concat(this.state.inputData),
-      });
+        formula: prevState.formula.concat(prevState.inputData),
+      }));
     } else if (!this.state.inputData.includes(decimal)) {
-      this.setState({
-        inputData: this.state.inputData.concat(decimal),
-      });
+      this.setState(prevState => ({
+        inputData: prevState.inputData.concat(decimal),
+      }));
     }
   };
 
   onOperatorValue = ({ target }) => {
     const operator = target.innerText;
 
-    if (Calculator.isOperator(this.state.inputData)) {
+    if (isOperator(this.state.inputData)) {
       this.setState({
         inputData: operator,
         isCalculated: false,
       });
     } else if (this.state.inputData !== '(') {
-      this.setState({
+      this.setState(prevState => ({
         inputData: operator,
-        formula: this.state.formula.concat(this.state.inputData),
+        formula: prevState.formula.concat(prevState.inputData),
         isCalculated: false,
-      });
+      }));
     }
   };
 
@@ -79,29 +81,28 @@ class ClassCalculatorPageContainer extends React.Component {
 
     if (parenthesis === '(') {
       if (
-        (Calculator.isNumber(this.state.inputData) &&
-          this.state.inputData !== '0') ||
-        (Calculator.isNumber(this.state.inputData) &&
+        (isNumber(this.state.inputData) && this.state.inputData !== '0') ||
+        (isNumber(this.state.inputData) &&
           this.state.inputData === '0' &&
           this.state.formula.length > 0) ||
         this.state.inputData === ')'
       ) {
-        this.setState({
+        this.setState(prevState => ({
           inputData: parenthesis,
-          formula: this.state.formula.concat([this.state.inputData, '*']),
+          formula: prevState.formula.concat([prevState.inputData, '*']),
           isCalculated: false,
-        });
+        }));
       } else if (
-        Calculator.isOperator(this.state.inputData) ||
+        isOperator(this.state.inputData) ||
         this.state.inputData === '('
       ) {
-        this.setState({
+        this.setState(prevState => ({
           inputData: parenthesis,
-          formula: this.state.formula.concat(this.state.inputData),
+          formula: prevState.formula.concat(prevState.inputData),
           isCalculated: false,
-        });
+        }));
       } else if (
-        Calculator.isNumber(this.state.inputData) &&
+        isNumber(this.state.inputData) &&
         this.state.inputData === '0' &&
         this.state.formula.length === 0
       ) {
@@ -122,15 +123,14 @@ class ClassCalculatorPageContainer extends React.Component {
         : 0;
 
       if (
-        (Calculator.isNumber(this.state.inputData) ||
-          this.state.inputData === ')') &&
+        (isNumber(this.state.inputData) || this.state.inputData === ')') &&
         numOpenParenthesis > 0 &&
         numOpenParenthesis > numCloseParenthesis
       ) {
         this.setState({ inputData: parenthesis });
-        this.setState({
-          formula: this.state.formula.concat(this.state.inputData),
-        });
+        this.setState(prevState => ({
+          formula: prevState.formula.concat(prevState.inputData),
+        }));
         this.setState({ isCalculated: false });
       }
     }
@@ -154,18 +154,18 @@ class ClassCalculatorPageContainer extends React.Component {
     ) {
       this.setState({ inputData: '0', isCalculated: false });
     } else if (inputDataLength > 1) {
-      this.setState({
-        inputData: this.state.inputData.slice(0, inputDataLength - 1),
+      this.setState(prevState => ({
+        inputData: prevState.inputData.slice(0, inputDataLength - 1),
         isCalculated: false,
-      });
+      }));
     } else if (this.state.inputData !== '0') {
       this.setState({ inputData: '0', isCalculated: false });
     } else if (this.state.formula.length > 0) {
-      this.setState({
-        inputData: this.state.formula[this.state.formula.length - 1],
-        formula: this.state.formula.slice(0, this.state.formula.length - 1),
+      this.setState(prevState => ({
+        inputData: prevState.formula[prevState.formula.length - 1],
+        formula: prevState.formula.slice(0, prevState.formula.length - 1),
         isCalculated: false,
-      });
+      }));
     }
   };
 
