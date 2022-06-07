@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 
+import ErrorBoundary from 'components/ErrorBoundary/ErrorBoundary';
 import PropTypes from 'prop-types';
 import { ThemeContext, ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme, coloredTheme } from 'theme';
@@ -18,26 +19,28 @@ const App = ({ children }) => {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      <ThemeProvider
-        theme={
-          (theme === 'lightTheme' && { ...lightTheme }) ||
-          (theme === 'darkTheme' && { ...darkTheme }) ||
-          (theme === 'coloredTheme' && {
-            ...coloredTheme,
-          })
-        }
-      >
-        <MainContainer>
-          <HistoryContext.Provider
-            value={{ history, setHistory, handleClearHistory }}
-          >
-            <Header />
-            <div>{children}</div>
-          </HistoryContext.Provider>
-        </MainContainer>
-      </ThemeProvider>
-    </ThemeContext.Provider>
+    <ErrorBoundary>
+      <ThemeContext.Provider value={{ theme, setTheme }}>
+        <ThemeProvider
+          theme={
+            (theme === 'lightTheme' && { ...lightTheme }) ||
+            (theme === 'darkTheme' && { ...darkTheme }) ||
+            (theme === 'coloredTheme' && {
+              ...coloredTheme,
+            })
+          }
+        >
+          <MainContainer>
+            <HistoryContext.Provider
+              value={{ history, setHistory, handleClearHistory }}
+            >
+              <Header />
+              <div>{children}</div>
+            </HistoryContext.Provider>
+          </MainContainer>
+        </ThemeProvider>
+      </ThemeContext.Provider>
+    </ErrorBoundary>
   );
 };
 

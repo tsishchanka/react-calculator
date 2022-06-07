@@ -12,7 +12,6 @@ cypress/videos
 /utils
 
 # production
-/build
 /dist
 
 # misc
