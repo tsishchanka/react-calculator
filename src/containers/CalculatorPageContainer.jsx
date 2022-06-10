@@ -139,11 +139,12 @@ function CalculatorPageContainer() {
       result,
     };
     if (!Number.isNaN(result)) {
+      const newHistory = [].concat(newHistoryItem, history);
       setInputData(`${result}`);
       setFormula([]);
-      setHistory([].concat(newHistoryItem, history));
-      console.log('history', history);
+      setHistory(newHistory);
       setIsCalculated(true);
+      localStorage.setItem('history', JSON.stringify(newHistory));
     }
   };
 

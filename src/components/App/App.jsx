@@ -11,7 +11,7 @@ import { darkTheme, lightTheme, coloredTheme } from 'theme';
 import Header from '../Header';
 import { MainContainer } from './styled';
 
-export const HistoryContext = React.createContext();
+export const HistoryContext = React.createContext([]);
 const App = ({ children }) => {
   const [theme, setTheme] = useState('coloredTheme');
   const [history, setHistory] = useState([]);
@@ -23,8 +23,22 @@ const App = ({ children }) => {
     }
   }, []);
 
+  const currentHistory = () => {
+    if (localStorage.getItem('history') !== null) {
+      return JSON.parse(localStorage.getItem('history'));
+    }
+    return localStorage.setItem('history', JSON.stringify(history));
+  };
+
+  useLayoutEffect(() => {
+    setHistory(currentHistory);
+  }, []);
+
   const handleClearHistory = () => {
-    setHistory([]);
+    if (history.length > 0) {
+      localStorage.removeItem('history');
+      setHistory([]);
+    }
   };
 
   return (

@@ -10,7 +10,6 @@ function SettingsPageContainer() {
   const handleChangeTheme = e => {
     setTheme(e.target.value);
     localStorage.setItem('theme', e.target.value);
-    console.log('localStorage', localStorage.getItem('theme'));
   };
 
   return <SettingsPage theme={theme} handleChangeTheme={handleChangeTheme} />;
