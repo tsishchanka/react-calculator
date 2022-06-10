@@ -101,7 +101,6 @@ function CalculatorPageContainer() {
   };
 
   const handleClearOutput = () => {
-    console.log('handleClearOutput');
     setFormula([]);
     setInputData('0');
     setIsCalculated(false);
@@ -109,7 +108,6 @@ function CalculatorPageContainer() {
 
   const handleBackspace = () => {
     const inputDataLength = inputData.length;
-    console.log('handleBackspace');
     if (
       inputData === 'Infinity' ||
       inputData === '-Infinity' ||

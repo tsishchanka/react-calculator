@@ -73,15 +73,12 @@ export const evaluateOperand = arrOperand => {
       });
       const MultiplyCommand = () => ({
         execute: () => num2 * num1,
-        undo: () => num2 / num1,
       });
       const DivideCommand = () => ({
         execute: () => num2 / num1,
-        undo: () => num2 * num1,
       });
       const RestCommand = () => ({
         execute: () => num2 % num1,
-        undo: () => num1 * num2,
       });
       switch (item) {
         case '+':
