@@ -12,7 +12,7 @@ export default createGlobalStyle`
 
   html, body {
     max-width: 1920px;
-    max-height: 1080px;
+    min-height: 1080px;
   }
 
   body {

@@ -9,6 +9,7 @@ import CalculatorPage from 'screens/CalculatorPage/index';
 
 function CalculatorPageContainer() {
   const [inputData, setInputData] = useState('0');
+  const [signMinus, setSignMinus] = useState(false);
   const [formula, setFormula] = useState([]);
   const [isCalculated, setIsCalculated] = useState(false);
   const { history, setHistory } = useContext(HistoryContext);
@@ -31,6 +32,8 @@ function CalculatorPageContainer() {
 
   const handleDecimalValue = ({ target }) => {
     const decimal = target.innerText;
+    console.log('inputData', inputData);
+    console.log('target.innerText', target.innerText);
     if (isCalculated) {
       setInputData(`0${decimal}`);
       setIsCalculated(false);
@@ -40,6 +43,26 @@ function CalculatorPageContainer() {
     } else if (!inputData.includes(decimal)) {
       setInputData(inputData.concat(decimal));
     }
+  };
+
+  const handleSighChange = () => {
+    if (inputData !== '0' && inputData.match(/[0-9]/)) {
+      if (
+        !inputData.includes('-') &&
+        !inputData.includes('+') &&
+        +inputData > 0
+      ) {
+        setInputData(`-${inputData}`);
+      } else if (!inputData.includes('+') && !inputData.includes('-')) {
+        setInputData(`+${inputData}`);
+      } else if (inputData.includes('+')) {
+        setInputData(`-${inputData.slice(1)}`);
+      } else if (inputData.includes('-')) {
+        setInputData(`+${inputData.slice(1)}`);
+      }
+      console.log('handleSighChange');
+    }
+    return inputData;
   };
 
   const handleOperatorValue = ({ target }) => {
@@ -158,6 +181,7 @@ function CalculatorPageContainer() {
         handleClearOutput={handleClearOutput}
         handleBackspace={handleBackspace}
         handleEvaluate={handleEvaluate}
+        handleSighChange={handleSighChange}
       />
     </div>
   );

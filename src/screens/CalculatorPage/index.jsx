@@ -23,6 +23,7 @@ const CalculatorPage = ({
   handleClearOutput,
   handleBackspace,
   handleEvaluate,
+  handleSighChange,
 }) => {
   const [sideBar, setSideBar] = useState(false);
 
@@ -47,6 +48,7 @@ const CalculatorPage = ({
               handleClearOutput={handleClearOutput}
               handleBackspace={handleBackspace}
               handleEvaluate={handleEvaluate}
+              handleSighChange={handleSighChange}
             />
           </MainPanel>
           <ControlPanel />
@@ -66,6 +68,7 @@ CalculatorPage.propTypes = {
   handleClearOutput: PropTypes.func,
   handleBackspace: PropTypes.func,
   handleEvaluate: PropTypes.func,
+  handleSighChange: PropTypes.func,
 };
 
 export default CalculatorPage;

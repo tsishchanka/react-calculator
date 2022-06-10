@@ -5,3 +5,4 @@ export { default as ClearOutputButton } from './ClearOutputButton';
 export { default as DecimalButton } from './DecimalButton';
 export { default as ParenthesisButton } from './ParenthesisButton';
 export { default as BackspaceButton } from './BackspaceButton';
+export { default as SignButton } from './SignButton';

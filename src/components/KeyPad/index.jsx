@@ -12,6 +12,7 @@ import {
   DecimalButton,
   ParenthesisButton,
   BackspaceButton,
+  SignButton,
 } from './Buttons/index';
 import { Grid } from './styled';
 
@@ -23,6 +24,7 @@ const KeyPad = ({
   handleClearOutput,
   handleBackspace,
   handleEvaluate,
+  handleSighChange,
 }) => (
   <Grid>
     {buttonValues.map(
@@ -69,6 +71,13 @@ const KeyPad = ({
             handleEvaluate={handleEvaluate}
           />
         )) ||
+        (buttonValue.name === '+-' && (
+          <SignButton
+            key={buttonValue.id}
+            operator={buttonValue.name}
+            handleSighChange={handleSighChange}
+          />
+        )) ||
         (buttonValue.name.match(/[^\w]/) && (
           <OperatorButton
             key={buttonValue.id}
@@ -95,6 +104,7 @@ KeyPad.propTypes = {
   handleClearOutput: PropTypes.func,
   handleBackspace: PropTypes.func,
   handleEvaluate: PropTypes.func,
+  handleSighChange: PropTypes.func,
 };
 
 export default KeyPad;

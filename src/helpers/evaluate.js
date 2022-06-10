@@ -8,7 +8,6 @@ export function handleExecuteCommand(command) {
     Math.round(command().execute(calculatedResult) * 1000) / 1000;
 
   historyOperations.push(command);
-  console.log('historyOperations', historyOperations);
 }
 
 export const handleUndo = () => {
@@ -101,7 +100,7 @@ export const evaluateOperand = arrOperand => {
           handleExecuteCommand(RestCommand);
 
           break;
-        case 'CE':
+        case '+-':
           handleUndo();
 
           break;
