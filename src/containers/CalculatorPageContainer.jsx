@@ -1,5 +1,5 @@
 /* eslint-disable import/order */
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useLayoutEffect } from 'react';
 
 import { HistoryContext } from 'components/App/App';
 import { isNotNumber, isNumber, isOperator } from 'constants/formulaValues';
@@ -9,10 +9,20 @@ import CalculatorPage from 'screens/CalculatorPage/index';
 
 function CalculatorPageContainer() {
   const [inputData, setInputData] = useState('0');
-  const [signMinus, setSignMinus] = useState(false);
   const [formula, setFormula] = useState([]);
   const [isCalculated, setIsCalculated] = useState(false);
   const { history, setHistory } = useContext(HistoryContext);
+
+  const currentHistory = () => {
+    if (localStorage.getItem('history') !== null) {
+      return JSON.parse(localStorage.getItem('history'));
+    }
+    return localStorage.setItem('history', JSON.stringify(history));
+  };
+
+  useLayoutEffect(() => {
+    setHistory(currentHistory);
+  }, []);
 
   const handleDigitValue = ({ target }) => {
     const digit = target.innerText;

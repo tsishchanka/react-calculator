@@ -23,24 +23,6 @@ const App = ({ children }) => {
     }
   }, []);
 
-  const currentHistory = () => {
-    if (localStorage.getItem('history') !== null) {
-      return JSON.parse(localStorage.getItem('history'));
-    }
-    return localStorage.setItem('history', JSON.stringify(history));
-  };
-
-  useLayoutEffect(() => {
-    setHistory(currentHistory);
-  }, []);
-
-  const handleClearHistory = () => {
-    if (history.length > 0) {
-      localStorage.removeItem('history');
-      setHistory([]);
-    }
-  };
-
   return (
     <ErrorBoundary>
       <ThemeContext.Provider value={{ theme, setTheme }}>
@@ -54,9 +36,7 @@ const App = ({ children }) => {
           }
         >
           <MainContainer>
-            <HistoryContext.Provider
-              value={{ history, setHistory, handleClearHistory }}
-            >
+            <HistoryContext.Provider value={{ history, setHistory }}>
               <Header />
               <div>{children}</div>
             </HistoryContext.Provider>

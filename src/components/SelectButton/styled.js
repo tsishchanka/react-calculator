@@ -8,14 +8,14 @@ export const Select = styled.select`
   border-radius: 8px;
   padding: 30px;
   margin: 30px 60px;
-  font-size: ${fontSizes.titleSize};
+  font-size: ${fontSizes.titleSizeMedium};
   cursor: pointer;
   border: 1px solid ${props => props.theme.black};
   background-color: ${props => props.theme.calculatorButton};
   appearance: none;
   &:hover,
   &:focus {
-    background-color: ${props => props.theme.primary};
+    background-color: ${props => props.theme.secondary};
     border: 1px solid ${props => props.theme.black};
     transition: 0.3s ease-in-out;
     option {

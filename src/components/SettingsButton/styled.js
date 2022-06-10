@@ -11,7 +11,7 @@ export const StyledSettingsButton = styled.button`
   padding-right: 140px;
   padding-left: 25px;
   margin: 30px 60px;
-  font-size: ${fontSizes.titleSize};
+  font-size: ${fontSizes.titleSizeMedium};
   border: 1px solid ${props => props.theme.black};
   background-color: ${props => props.theme.calculatorButton};
   &:hover,
@@ -33,7 +33,7 @@ export const StyledSettingsSelector = styled.div`
   border-radius: 8px;
   padding: 30px;
   margin: 30px 60px;
-  font-size: ${fontSizes.titleSize};
+  font-size: ${fontSizes.titleSizeMedium};
   border: 1px solid ${props => props.theme.black};
   background-color: ${props => props.theme.calculatorButton};
   &:hover,

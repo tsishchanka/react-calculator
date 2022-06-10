@@ -6,7 +6,15 @@ import { HistoryContext } from '../App/App';
 import { StyledSettingsButton } from './styled';
 
 const SettingsButtons = () => {
-  const { handleClearHistory } = useContext(HistoryContext);
+  const { history, setHistory } = useContext(HistoryContext);
+
+  const handleClearHistory = () => {
+    if (history.length > 0) {
+      localStorage.removeItem('history');
+      setHistory([]);
+    }
+  };
+
   return (
     <div onClick={handleClearHistory}>
       <StyledSettingsButton>Clear All History</StyledSettingsButton>

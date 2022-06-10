@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
@@ -12,10 +12,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App>
-        <RoutesComponent />
-      </App>
-      <GlobalStyles />
+      <Suspense fallback={<div>Loading...</div>}>
+        <App>
+          <RoutesComponent />
+        </App>
+
+        <GlobalStyles />
+      </Suspense>
     </BrowserRouter>
   </React.StrictMode>,
 );
