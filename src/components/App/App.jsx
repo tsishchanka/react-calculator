@@ -1,6 +1,6 @@
 /* eslint-disable import/order */
 /* eslint-disable react/jsx-no-constructed-context-values */
-import React, { useState } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -15,6 +15,13 @@ export const HistoryContext = React.createContext();
 const App = ({ children }) => {
   const [theme, setTheme] = useState('coloredTheme');
   const [history, setHistory] = useState([]);
+
+  useLayoutEffect(() => {
+    if (localStorage.getItem('theme').length !== 0) {
+      const currentTheme = localStorage.getItem('theme');
+      setTheme(currentTheme);
+    }
+  }, []);
 
   const handleClearHistory = () => {
     setHistory([]);
