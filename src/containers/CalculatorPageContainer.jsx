@@ -15,7 +15,8 @@ function CalculatorPageContainer() {
 
   const currentHistory = () => {
     if (localStorage.getItem('history') !== null) {
-      return JSON.parse(localStorage.getItem(history));
+      console.log('localStorage', localStorage.getItem('history'));
+      return JSON.parse(localStorage.getItem('history'));
     }
     return localStorage.setItem('history', JSON.stringify(history));
   };

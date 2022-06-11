@@ -15,8 +15,16 @@ const History = () => {
   const { history, setHistory } = useContext(HistoryContext);
   const { handleShowSideBar } = useContext(SideBarContext);
 
+  const currentHistory = () => {
+    if (localStorage.getItem('history') !== null) {
+      console.log('localStorage', localStorage.getItem('history'));
+      return JSON.parse(localStorage.getItem('history'));
+    }
+    return localStorage.setItem('history', JSON.stringify(history));
+  };
+
   useEffect(() => {
-    setHistory(history);
+    setHistory(currentHistory);
   }, []);
 
   console.log('history in map', history);
