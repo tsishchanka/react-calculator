@@ -1,0 +1,23 @@
+{
+  "title": "Calculator App",
+
+  "history": "History",
+
+  "languages": {
+    "en": "English",
+    "ru": "Russian"
+  },
+
+  "pages": {
+    "home": "Home",
+    "settings": "Settings"
+  },
+
+  "themes": {
+    "colored": "Colored Theme",
+    "light": "Light Theme",
+    "dark": "Dark Theme"
+  },
+
+  "clear_history": "Clear All History"
+}

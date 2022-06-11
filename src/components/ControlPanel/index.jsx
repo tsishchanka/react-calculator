@@ -8,6 +8,7 @@ import { ControlPanelWrapper, Toggler } from './styled';
 
 const ControlPanel = () => {
   const { isSideBarOpen } = useContext(SideBarContext);
+
   const handleShowSideBar = () =>
     isSideBarOpen.setSideBar(!isSideBarOpen.sideBar);
   return (

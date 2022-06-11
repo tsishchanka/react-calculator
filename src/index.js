@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
@@ -8,17 +8,17 @@ import App from './components/App/App';
 import RoutesComponent from './components/Routes/Routes';
 import GlobalStyles from './globalStyles';
 
+import './i18n';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Suspense fallback={<div>Loading...</div>}>
-        <App>
-          <RoutesComponent />
-        </App>
+      <App>
+        <RoutesComponent />
+      </App>
 
-        <GlobalStyles />
-      </Suspense>
+      <GlobalStyles />
     </BrowserRouter>
   </React.StrictMode>,
 );
