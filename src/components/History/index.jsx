@@ -19,13 +19,14 @@ const History = () => {
 
   return (
     <HistoryPanel onClick={handleShowSideBar}>
-      <HistoryPanelTitle>{t('history')}</HistoryPanelTitle>
+      <HistoryPanelTitle>{t('history_title')}</HistoryPanelTitle>
 
-      {history.map((item, index) => (
-        <HistoryPanelItem key={index}>
-          {item.formula.join('')}={item.result}
-        </HistoryPanelItem>
-      ))}
+      {history &&
+        history.map((item, index) => (
+          <HistoryPanelItem key={index}>
+            {item.formula.join('')}={item.result}
+          </HistoryPanelItem>
+        ))}
     </HistoryPanel>
   );
 };

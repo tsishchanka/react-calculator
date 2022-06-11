@@ -1,6 +1,6 @@
 {
   "title": "Калькулятор",
-  "history": "История",
+  "history_title": "История",
   "pages": {
     "home": "Главная",
     "settings": "Настройки"
