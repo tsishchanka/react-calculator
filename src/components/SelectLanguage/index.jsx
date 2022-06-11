@@ -7,9 +7,7 @@ import { LanguageButton } from './styled';
 const SelectLanguage = () => {
   const { i18n } = useTranslation();
   const handleChangeLanguage = language => {
-    console.log('language', language);
     i18n.changeLanguage(language);
-    localStorage.setItem('locale', language);
   };
   return (
     <div>

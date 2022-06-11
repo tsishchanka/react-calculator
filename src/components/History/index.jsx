@@ -14,7 +14,7 @@ import { HistoryPanel, HistoryPanelTitle, HistoryPanelItem } from './styled';
 const History = () => {
   const { history } = useContext(HistoryContext);
   const { handleShowSideBar } = useContext(SideBarContext);
-
+  console.log('history', history);
   const { t } = useTranslation();
 
   return (
@@ -24,6 +24,7 @@ const History = () => {
       {history &&
         history.map((item, index) => (
           <HistoryPanelItem key={index}>
+            {console.log('item', item)}
             {item.formula.join('')}={item.result}
           </HistoryPanelItem>
         ))}
