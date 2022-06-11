@@ -2,6 +2,8 @@ import React from 'react';
 
 import { useTranslation } from 'react-i18next';
 
+import { LanguageButton } from './styled';
+
 const SelectLanguage = () => {
   const { i18n } = useTranslation();
   const handleChangeLanguage = language => {
@@ -11,12 +13,12 @@ const SelectLanguage = () => {
   };
   return (
     <div>
-      <button type="button" onClick={() => handleChangeLanguage('en')}>
+      <LanguageButton type="button" onClick={() => handleChangeLanguage('en')}>
         EN
-      </button>
-      <button type="button" onClick={() => handleChangeLanguage('ru')}>
+      </LanguageButton>
+      <LanguageButton type="button" onClick={() => handleChangeLanguage('ru')}>
         RU
-      </button>
+      </LanguageButton>
     </div>
   );
 };
