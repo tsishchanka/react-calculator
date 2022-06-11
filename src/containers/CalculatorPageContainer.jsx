@@ -1,5 +1,5 @@
 /* eslint-disable import/order */
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useLayoutEffect } from 'react';
 
 import { HistoryContext } from 'components/App/App';
 import { isNotNumber, isNumber, isOperator } from 'constants/formulaValues';
@@ -12,14 +12,15 @@ function CalculatorPageContainer() {
   const [formula, setFormula] = useState([]);
   const [isCalculated, setIsCalculated] = useState(false);
   const { history, setHistory } = useContext(HistoryContext);
-  useEffect(() => {
-    const currentHistory = () => {
-      if (!localStorage.getItem('history')) {
-        return localStorage.setItem('history', JSON.stringify([]));
-      }
-      return JSON.parse(localStorage.getItem('history'));
-    };
 
+  const currentHistory = () => {
+    if (localStorage.getItem('history') !== null) {
+      return JSON.parse(localStorage.getItem(history));
+    }
+    return localStorage.setItem('history', JSON.stringify(history));
+  };
+
+  useLayoutEffect(() => {
     setHistory(currentHistory);
   }, []);
 

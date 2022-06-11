@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable import/no-cycle */
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
@@ -12,9 +12,14 @@ import { HistoryPanel, HistoryPanelTitle, HistoryPanelItem } from './styled';
 // eslint-disable-next-line import/no-cycle
 
 const History = () => {
-  const { history } = useContext(HistoryContext);
+  const { history, setHistory } = useContext(HistoryContext);
   const { handleShowSideBar } = useContext(SideBarContext);
-  console.log('history', history);
+
+  useEffect(() => {
+    setHistory(history);
+  }, []);
+
+  console.log('history in map', history);
   const { t } = useTranslation();
 
   return (
@@ -24,7 +29,7 @@ const History = () => {
       {history &&
         history.map((item, index) => (
           <HistoryPanelItem key={index}>
-            {console.log('item', item)}
+            {console.log('item', item.formula)}
             {item.formula.join('')}={item.result}
           </HistoryPanelItem>
         ))}
