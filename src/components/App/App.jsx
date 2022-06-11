@@ -18,7 +18,7 @@ const App = ({ children }) => {
   const [history, setHistory] = useState([]);
 
   useLayoutEffect(() => {
-    if (localStorage.getItem('theme').length !== 0) {
+    if (localStorage.getItem('theme')) {
       const currentTheme = localStorage.getItem('theme');
       setTheme(currentTheme);
     }
