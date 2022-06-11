@@ -3,7 +3,6 @@
 import React, { useContext } from 'react';
 
 import { useTranslation } from 'react-i18next';
-
 import { SideBarContext } from 'screens/CalculatorPage/index';
 
 import { HistoryContext } from '../App/App';

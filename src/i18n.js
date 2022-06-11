@@ -21,7 +21,6 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
-    debug: false,
     detection: {
       order: ['cookie', 'localStorage'],
       caches: ['cookie'],
