@@ -3,8 +3,8 @@ import React from 'react';
 // eslint-disable-next-line import/order
 import PropTypes from 'prop-types';
 
-import SelectLanguage from 'components/SelectLanguage/index';
 import SelectButton from 'components/SelectButton/index';
+import SelectLanguage from 'components/SelectLanguage/index';
 import SettingsButtons from 'components/SettingsButton/index';
 
 import { SettingsWrapper } from './styled';
