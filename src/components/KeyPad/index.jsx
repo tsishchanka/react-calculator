@@ -50,6 +50,13 @@ const KeyPad = ({
             handleDecimalValue={handleDecimalValue}
           />
         )) ||
+        (buttonValue.name === 'Mod' && (
+          <OperatorButton
+            key={buttonValue.id}
+            operator={buttonValue.name}
+            handleOperatorValue={handleOperatorValue}
+          />
+        )) ||
         (buttonValue.name === 'C' && (
           <ClearOutputButton
             key={buttonValue.id}

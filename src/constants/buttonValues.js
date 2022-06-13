@@ -19,6 +19,6 @@ export const buttonValues = [
   { id: 17, name: '0' },
   { id: 18, name: ')' },
   { id: 19, name: 'CE' },
-  { id: 21, name: '%' },
+  { id: 21, name: 'Mod' },
   { id: 22, name: '+-' },
 ];

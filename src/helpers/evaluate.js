@@ -96,7 +96,7 @@ export const evaluateOperand = arrOperand => {
           handleExecuteCommand(DivideCommand);
 
           break;
-        case '%':
+        case 'Mod':
           handleExecuteCommand(RestCommand);
 
           break;
