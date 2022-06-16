@@ -15,6 +15,7 @@ export const ControlPanelWrapper = styled.div`
   @media (max-width: 800px) {
     padding: 18px 0;
     margin-left: 10px;
+    width: 300px;
   }
 `;
 export const Toggler = styled.button`
@@ -27,6 +28,11 @@ export const Toggler = styled.button`
   width: 25px;
   height: 105px;
   background-color: ${props => props.theme.black};
+  @media (max-width: 800px) {
+    height: 25px;
+    width: 105px;
+    margin: 15px auto;
+  }
   &:after {
     display: block;
     position: absolute;
@@ -48,6 +54,8 @@ export const Toggler = styled.button`
     }
     @media (max-width: 800px) {
       visibility: hidden;
+      transition: 0s;
+      height: 0px;
     }
   }
 `;

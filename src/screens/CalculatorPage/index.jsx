@@ -39,7 +39,7 @@ const CalculatorPage = ({
     <ErrorBoundary>
       <SideBarContext.Provider value={{ isSideBarOpen }}>
         <CalculatorWrapper>
-          <MainPanel width={sideBar ? '95vw' : '65vw'}>
+          <MainPanel width={sideBar && '65vw'}>
             <Display formula={formula} inputData={inputData} />
             <KeyPad
               handleDigitValue={handleDigitValue}

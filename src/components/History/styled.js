@@ -25,16 +25,16 @@ export const HistoryPanelTitle = styled.h1`
     font-size: ${fontSizes.titleSizeMedium};
     padding-left: 10px;
   }
-  @media (max-width: 800px) {
-    font-size: ${fontSizes.titleSizeSmall};
-    max-width: 100px;
+  @media (max-width: 1250px) {
+    font-size: ${fontSizes.titleSizeMedium};
+    margin-bottom: 10px;
   }
 `;
 export const HistoryPanelItem = styled.p`
   font-size: ${fontSizes.titleSizeSmall};
   line-break: anywhere;
   @media (max-width: 800px) {
-    font-size: ${fontSizes.titleSizeMedium};
+    font-size: ${fontSizes.titleSizeSmall};
     max-width: 100px;
   }
 `;

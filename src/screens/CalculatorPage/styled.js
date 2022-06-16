@@ -15,7 +15,7 @@ export const CalculatorWrapper = styled.div`
 `;
 
 export const MainPanel = styled.div`
-  width: ${props => props.width};
+  width: ${props => '95vw' || props.width};
   display: flex;
   padding-right: 18px;
   margin: 0 30px;
@@ -23,5 +23,9 @@ export const MainPanel = styled.div`
   background-color: ${props => props.theme.white};
   @media (max-width: 1250px) {
     padding: 0;
+  }
+  @media (max-width: 800px) {
+    padding: 0;
+    max-width: 450px;
   }
 `;
