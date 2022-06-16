@@ -6,7 +6,7 @@ export const Select = styled.select`
   width: 400px;
   height: 95px;
   border-radius: 8px;
-  padding: 30px;
+  padding-left: 30px;
   margin: 30px 60px;
   font-size: ${fontSizes.titleSizeMedium};
   cursor: pointer;
@@ -31,5 +31,17 @@ export const Select = styled.select`
     background-position: calc(100% - 35px) 35px;
     background-size: 28px auto;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Cpath d='M70.3 13.8L40 66.3 9.7 13.8z' fill='%23000'%3E%3C/path%3E%3C/svg%3E");
+  }
+  @media (max-width: 680px) {
+    width: 300px;
+    height: 80px;
+
+    font-size: ${fontSizes.titleSizeSmall};
+    &:not([multiple]) {
+      background-repeat: no-repeat;
+      background-position: calc(100% - 25px) 30px;
+      background-size: 20px auto;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Cpath d='M70.3 13.8L40 66.3 9.7 13.8z' fill='%23000'%3E%3C/path%3E%3C/svg%3E");
+    }
   }
 `;

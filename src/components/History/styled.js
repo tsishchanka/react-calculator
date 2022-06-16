@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { fontSizes } from '../../theme';
+import { fontSizes } from 'theme';
 
 export const HistoryPanel = styled.div`
   display: flex;
@@ -10,9 +10,10 @@ export const HistoryPanel = styled.div`
   background-color: ${props => props.theme.white};
   @media (max-width: 1250px) {
     max-width: 200px;
+    padding-left: 37px;
   }
   @media (max-width: 800px) {
-    max-width: 100px;
+    margin: 0 auto;
   }
 `;
 
@@ -25,10 +26,15 @@ export const HistoryPanelTitle = styled.h1`
     padding-left: 10px;
   }
   @media (max-width: 800px) {
+    font-size: ${fontSizes.titleSizeSmall};
     max-width: 100px;
   }
 `;
 export const HistoryPanelItem = styled.p`
-  font-size: ${fontSizes.titleSize};
+  font-size: ${fontSizes.titleSizeSmall};
   line-break: anywhere;
+  @media (max-width: 800px) {
+    font-size: ${fontSizes.titleSizeMedium};
+    max-width: 100px;
+  }
 `;

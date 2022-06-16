@@ -17,7 +17,6 @@ const History = () => {
 
   const currentHistory = () => {
     if (localStorage.getItem('history') !== null) {
-      console.log('localStorage', localStorage.getItem('history'));
       return JSON.parse(localStorage.getItem('history'));
     }
     return localStorage.setItem('history', JSON.stringify(history));
@@ -27,7 +26,6 @@ const History = () => {
     setHistory(currentHistory);
   }, []);
 
-  console.log('history in map', history);
   const { t } = useTranslation();
 
   return (
@@ -37,7 +35,6 @@ const History = () => {
       {history &&
         history.map((item, index) => (
           <HistoryPanelItem key={index}>
-            {console.log('item', item.formula)}
             {item.formula.join('')}={item.result}
           </HistoryPanelItem>
         ))}

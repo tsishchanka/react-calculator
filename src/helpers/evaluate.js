@@ -43,8 +43,6 @@ export const toOperand = arrFormula => {
       }
 
       stack.push(item);
-    } else {
-      console.log('Something else!!!');
     }
   });
 
@@ -111,7 +109,6 @@ export const evaluateOperand = arrOperand => {
       }
 
       stack.push(`${calculatedResult}`);
-      console.log('stack', stack);
     }
   });
 

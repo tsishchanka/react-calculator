@@ -8,6 +8,12 @@ export const HeaderTitle = styled.h1`
   font-size: ${fontSizes.titleSize};
   font-weight: normal;
   margin: 42px auto 42px 32px;
+  @media (max-width: 1250px) {
+    font-size: ${fontSizes.titleSizeMedium};
+  }
+  @media (max-width: 800px) {
+    font-size: ${fontSizes.titleSizeSmall};
+  }
 `;
 
 export const StyledButton = styled.button`
@@ -18,6 +24,12 @@ export const StyledButton = styled.button`
   font-size: ${fontSizes.titleSize};
   position: relative;
   color: ${props => props.color || props.theme.white};
+  @media (max-width: 1250px) {
+    margin: 30px 15px 30px 0;
+  }
+  @media (max-width: 800px) {
+    margin: 10px 5px 10px 0;
+  }
 `;
 
 export const StyledLink = styled(NavLink)`
@@ -46,6 +58,12 @@ export const StyledLink = styled(NavLink)`
       width: 100%;
     }
   }
+  @media (max-width: 1250px) {
+    font-size: ${fontSizes.titleSizeMedium};
+  }
+  @media (max-width: 800px) {
+    font-size: ${fontSizes.titleSizeSmall};
+  }
 `;
 export const HeaderWrapper = styled.div`
   background-color: ${props => props.theme.black};
@@ -56,10 +74,11 @@ export const HeaderWrapper = styled.div`
 
   @media (max-width: 1250px) {
     max-width: 1200px;
-    padding: 18px 0;
+    padding: 10px 0;
   }
   @media (max-width: 800px) {
     max-width: 750px;
-    padding: 18px 0;
+    padding: 5px 0;
+    flex-direction: column;
   }
 `;

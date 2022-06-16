@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { fontSizes } from 'theme';
+import { fontSizes } from '../../theme';
 
 export const KeyPadWrapper = styled.div`
   display: flex;
@@ -27,16 +27,15 @@ export const KeypadButton = styled.button`
     color: ${props => props.theme.black};
   }
   @media (max-width: 1480px) {
-    font-size: ${fontSizes.nameKeySizeMedium};
+    font-size: ${fontSizes.titleSizeSmall};
     text-align: center;
     padding-top: 8px;
     width: 80px;
     height: 80px;
     border-radius: 16px;
-    margin: 15px 5px;
+    margin: 5px;
   }
   @media (max-width: 900px) {
-    font-size: ${fontSizes.titleSizeMedium};
     text-align: center;
     padding-top: 5px;
     width: 50px;
@@ -53,5 +52,7 @@ export const ControlButtonWrapper = styled.div`
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  margin-top: 15px;
+  margin: 15px auto;
+  @media (max-width: 800px) {
+  }
 `;

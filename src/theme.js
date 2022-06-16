@@ -3,6 +3,7 @@ export const font = 'Helvetica';
 export const fontSizes = {
   titleSize: '32px',
   titleSizeMedium: '28px',
+  titleSizeSmall: '24px',
   nameKeySize: '60px',
   nameKeySizeMedium: '38px',
   displayInfoSize: '58px',

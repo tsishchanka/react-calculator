@@ -21,27 +21,12 @@ export const StyledSettingsButton = styled.button`
     border: 1px solid ${props => props.theme.error};
     transition: 0.3s ease-in-out;
   }
-`;
-
-export const StyledSettingsSelector = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  text-align: center;
-  width: 400px;
-  height: 95px;
-  border-radius: 8px;
-  padding: 30px;
-  margin: 30px 60px;
-  font-size: ${fontSizes.titleSizeMedium};
-  border: 1px solid ${props => props.theme.black};
-  background-color: ${props => props.theme.calculatorButton};
-  &:hover,
-  &:focus {
-    background-color: ${props => props.theme.primary};
-    color: ${props => props.theme.white};
-    border: 1px solid ${props => props.theme.black};
-    transition: 0.3s ease-in-out;
+  @media (max-width: 680px) {
+    width: 300px;
+    height: 80px;
+    padding-right: 50px;
+    padding-left: 50px;
+    font-size: ${fontSizes.titleSizeSmall};
   }
 `;
 

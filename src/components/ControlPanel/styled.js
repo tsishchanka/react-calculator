@@ -10,7 +10,7 @@ export const ControlPanelWrapper = styled.div`
   transition: 350ms;
   @media (max-width: 1250px) {
     padding: 18px 0;
-    margin-left: 70px;
+    margin-left: 10px;
   }
   @media (max-width: 800px) {
     padding: 18px 0;
@@ -45,6 +45,9 @@ export const Toggler = styled.button`
     @media (max-width: 900px) {
       top: -240px;
       height: 500px;
+    }
+    @media (max-width: 800px) {
+      visibility: hidden;
     }
   }
 `;

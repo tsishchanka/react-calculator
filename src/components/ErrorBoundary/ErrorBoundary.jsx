@@ -11,11 +11,6 @@ class ErrorBoundary extends Component {
     };
   }
 
-  static getDerivedStateFormError(error) {
-    console.log(error);
-    return { isError: true };
-  }
-
   render() {
     const { isError } = this.state;
     const { children } = this.props;

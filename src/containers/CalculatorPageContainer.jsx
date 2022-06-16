@@ -15,7 +15,6 @@ function CalculatorPageContainer() {
 
   const currentHistory = () => {
     if (localStorage.getItem('history') !== null) {
-      console.log('localStorage', localStorage.getItem('history'));
       return JSON.parse(localStorage.getItem('history'));
     }
     return localStorage.setItem('history', JSON.stringify(history));
@@ -43,8 +42,6 @@ function CalculatorPageContainer() {
 
   const handleDecimalValue = ({ target }) => {
     const decimal = target.innerText;
-    console.log('inputData', inputData);
-    console.log('target.innerText', target.innerText);
     if (isCalculated) {
       setInputData(`0${decimal}`);
       setIsCalculated(false);
@@ -71,7 +68,6 @@ function CalculatorPageContainer() {
       } else if (inputData.includes('-')) {
         setInputData(`+${inputData.slice(1)}`);
       }
-      console.log('handleSighChange');
     }
     return inputData;
   };
@@ -163,7 +159,6 @@ function CalculatorPageContainer() {
   };
 
   const handleEvaluate = () => {
-    console.log('Evaluate');
     const finalFormula = formula.concat(inputData);
     const result = Calculator.evaluate(finalFormula);
     const newHistoryItem = {
