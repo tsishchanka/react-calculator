@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const CalculatorWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  width: 1820px;
   padding: 10px 0 10px 36px;
   background-color: ${props => props.theme.white};
   @media (max-width: 1250px) {
