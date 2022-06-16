@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { fontSizes } from '../../theme';
+import { fontSizes } from 'theme';
 
 export const KeyPadWrapper = styled.div`
   display: flex;

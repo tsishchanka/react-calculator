@@ -1,9 +1,9 @@
 /* eslint-disable import/no-cycle */
 import React, { useContext } from 'react';
 
-import { SideBarContext } from 'screens/CalculatorPage/index';
+import { SideBarContext } from 'screens/CalculatorPage';
 
-import History from '../History/index';
+import History from '../History';
 import { ControlPanelWrapper, Toggler } from './styled';
 
 const ControlPanel = () => {

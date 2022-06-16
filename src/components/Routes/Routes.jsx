@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Routes, Route } from 'react-router-dom';
 
-import { ROUTES } from '../../constants/routeNames';
-import CalculatorPageContainer from '../../containers/CalculatorPageContainer';
-import SettingsPageContainer from '../../containers/SettingsPageContainer';
+import { ROUTES } from 'constants/routeNames';
+import CalculatorPageContainer from 'containers/CalculatorPageContainer';
+import SettingsPageContainer from 'containers/SettingsPageContainer';
 
 // class components
 // import ClassCalculatorPageContainer from 'containers/ClassCalculatorPageContainer';
